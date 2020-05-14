@@ -153,6 +153,7 @@ const Activity = props => {
                           { value: 'merkinantopistooli', label: 'merkinantopistooli' },
                           { value: 'mustaruutiase', label: 'mustaruutiase' },
                           { value: 'ilma-ase', label: 'ilma-ase' },
+                          { value: 'ekoase', label: 'ekoase' },
                           { value: 'jousi', label: 'jousi' },
                           { value: 'muu', label: 'muu' }
                         ]} />
