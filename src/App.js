@@ -105,8 +105,8 @@ function App() {
   const updateActivity = activity => {
     const data = {
       id: activity.id,
+      type_id: 1337,
       payload: activity,
-      validated_user_id: null,
     }
     console.log(data);
     axios.put(
