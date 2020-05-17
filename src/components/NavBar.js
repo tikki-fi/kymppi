@@ -17,12 +17,11 @@ const NavBar = props => {
     return (
       <Nav>{isAuthenticated ? [
         <NewActivity appendActivity={props.createActivity} key={1234} />,
-        <NavDropdown alignRight title={<Avatar name={user.name} size={35} round src={user.picture}/>}>
-          <NavDropdown.Item onClick={() => logout({returnTo: window.location.href})}>Kirjaudu ulos</NavDropdown.Item>
+        <NavDropdown alignRight title={<Avatar name={user.name} size={35} round src={user.picture} />}>
+          <NavDropdown.Item onClick={() => logout({ returnTo: window.location.href })}>Kirjaudu ulos</NavDropdown.Item>
         </NavDropdown>,
       ] : [
-          <Button onClick={() => loginWithRedirect({})}>Kirjaudu</Button>,
-          
+          <Button onClick={() => loginWithRedirect({})}>Kirjaudu</Button>
         ]
       }
       </Nav>

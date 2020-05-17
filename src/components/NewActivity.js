@@ -6,15 +6,6 @@ import Activity from "./Activity";
 const NewActivity = props => {
   const [show, setShow] = useState(false);
 
-  const getDate = () => {
-    let today = new Date();
-    let d = today.getDate();
-    let m = today.getMonth() + 1; //January is 0!
-
-    var yyyy = today.getFullYear();
-    return d + '.' + m + '.' + yyyy;
-  }
-
   return (
     <>
       <Button variant="primary" onClick={() => setShow(true)}>
@@ -35,7 +26,7 @@ const NewActivity = props => {
           <Activity
             appendActivity={props.appendActivity}
             setModalShow={setShow}
-            eventDate={getDate()}
+            eventDate={new Date()}
           />
         </Modal.Body>
       </Modal>

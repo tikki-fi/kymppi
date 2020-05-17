@@ -41,6 +41,7 @@ function App() {
       for (let i = 0; i < response.data.result.length; i++){
         const obj = response.data.result[i];
         let activity = obj.payload;
+        console.log(activity.eventDate);
         activity.id = obj.id;
         appendActivity(activity);
       }
