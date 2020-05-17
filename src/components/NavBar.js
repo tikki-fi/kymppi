@@ -18,7 +18,7 @@ const NavBar = props => {
       <Nav>{isAuthenticated ? [
         <NewActivity appendActivity={props.createActivity} key={1234} />,
         <NavDropdown alignRight title={<Avatar name={user.name} size={35} round src={user.picture}/>}>
-          <NavDropdown.Item onClick={() => logout()}>Kirjaudu ulos</NavDropdown.Item>
+          <NavDropdown.Item onClick={() => logout({returnTo: window.location.href})}>Kirjaudu ulos</NavDropdown.Item>
         </NavDropdown>,
       ] : [
           <Button onClick={() => loginWithRedirect({})}>Kirjaudu</Button>,
