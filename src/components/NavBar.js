@@ -21,7 +21,6 @@ const NavBar = props => {
           <NavDropdown.Item onClick={() => logout({ returnTo: window.location.href })}>Kirjaudu ulos</NavDropdown.Item>
         </NavDropdown>,
       ] : [
-          <Button onClick={() => props.exportPdf()}>PDF</Button>,
           <Button onClick={() => loginWithRedirect({})}>Kirjaudu</Button>
         ]
       }
