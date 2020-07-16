@@ -11,7 +11,7 @@ import Select from 'react-select'
 import Creatable from 'react-select/creatable';
 import { v4 as uuidv4 } from 'uuid';
 
-import { formatDate, parseDate } from '../utils';
+import { formatDate, formatSubtask, parseDate } from '../utils';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -65,7 +65,6 @@ const Activity = props => {
     setSeries(event.target.value);
   };
   const handleActivityTypeSelect = event => {
-    console.log(event);
     setActivityType(processEvent(event));
   };
   const handleMechanismSelect = event => {
@@ -75,7 +74,6 @@ const Activity = props => {
     setCaliber(processEvent(event));
   };
   const handleShotsChanged = event => {
-    console.log(event.target);
     setShots(event.target.value);
   };
   const handleDistanceChanged = event => {
@@ -113,12 +111,7 @@ const Activity = props => {
       {subTasks.map((subtask, index) => (
         <Row>
           <Col xs>
-            {index + 1 + '. '}
-            {subtask.activityType + ', '}
-            {subtask.mechanism + ' '}
-            {subtask.caliber ? ' (' + subtask.caliber + ')' : undefined}
-            {': ' + subtask.shots} kpl
-                {subtask.distance ? ' (' + subtask.distance + (!isNaN(subtask.distance) ? ' m' : '') + ')' : undefined}
+            {formatSubtask(index, subtask)}
           </Col>
         </Row>
       ))}
@@ -510,7 +503,7 @@ const Activity = props => {
       <Form key={props.id} style={cardStyle}>
         <Form.Group controlId="formDate">
           <Row>
-            <Col xs>
+            <Col xs={'auto'}>
               <Form.Label>Päivämäärä</Form.Label>
             </Col>
             <Col>

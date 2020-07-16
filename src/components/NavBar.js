@@ -13,14 +13,15 @@ const NavBar = props => {
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
 
   const renderLogin = () => {
-    console.log(user);
     return (
       <Nav>{isAuthenticated ? [
+        <Button onClick={() => props.exportPdf()}>PDF</Button>,
         <NewActivity appendActivity={props.createActivity} key={1234} />,
         <NavDropdown alignRight title={<Avatar name={user.name} size={35} round src={user.picture} />}>
           <NavDropdown.Item onClick={() => logout({ returnTo: window.location.href })}>Kirjaudu ulos</NavDropdown.Item>
         </NavDropdown>,
       ] : [
+          <Button onClick={() => props.exportPdf()}>PDF</Button>,
           <Button onClick={() => loginWithRedirect({})}>Kirjaudu</Button>
         ]
       }
